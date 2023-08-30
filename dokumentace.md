@@ -8,8 +8,8 @@ Program řeší hlavolam kreslené křížovky, známé jako NONOGRAMY. Jde o ob
 
 Vytvořte v adresáři programu soubor a přepište do něj hodnoty vaší křížovky následujicím způsobem:
 Čísla v každém sloupci pište postupně, oddělená mezerami, každý sloupec na nový řádek.
-Poté vynechte jeden prázdný řádek a přepište čísla v řádcích tímtéž způsobem jako ve sloupcích. Zakončete jedním či více prázdnymi řádky. Soubor uložte.
-Po spuštění programu zadejte jméno souboru a začne strhující řešení nonogramu :)
+Poté vynechte jeden prázdný řádek a přepište čísla v řádcích tímtéž způsobem jako ve sloupcích. Zakončete jedním či více prázdnými řádky. Soubor uložte.
+Po spuštění programu zadejte jméno souboru a nonogram se začne graficky vyplňovat
 
 
 ### Struktura a technický náhled:
@@ -19,9 +19,8 @@ Mřížka křížovky je reprezentována 2-rozměrným polem (seznamem) ve kter�
 
 Samotný běh zajišťují funkce *projdi* a funkce *policko*.
 
-Funkce "policko" dostane jako vstup pole celku v nevyplněném nebo částečně vyplněném stavu a dále pole s čísly zadání pro daný celek. Výstupem je seznam indexů které jsou určitě bílé a seznam těch, které jsou určitě černé. Funkce na principu rekurze volá sebe samu a pokaždé doplní postupně různý počet "bílých" polí a rekurze se ukončí právě tehdy, když dojde ke sporu se zadáním (tedy zkoušená kombinace je nevhodná) anebo když je řádek vhodný a zcela vyplněn.
+Funkce "policko" dostane jako vstup pole celku v nevyplněném nebo částečně vyplněném stavu a dále pole s čísly zadání pro daný celek. Výstupem je seznam indexů polí, která jsou určitě bílá a těch, která jsou určitě černá. Funkce pomocí rekurze volá sebe sama a pokaždé doplní postupně různý počet "bílých" polí (ta představují rozestupy mezi čísly) a rekurze se ukončí tehdy, když dojde ke sporu se zadáním (tedy zkoušená kombinace je nevhodná) anebo když je řádek vhodný a zcela vyplněn.
 Funkce zaznamenává každou nalezenou vhodnou kombinaci a zároveň jejich počet. Pak vrátí indexy těch polí, která bylá ve všech případech vyplněna stejně. Tyto hodnoty zanese do pole křížovky a v modulu turtle spustí zakreslení příslušných políček.
-
 
 Funkce "projdi" používá frontu řádků/sloupců a aplikuje na ně výše popsanou funkci "policko". Pokud v daném celku některé prvky změní, připojí do fronty změněné indexy, protože tyto prvky změní i složení celku kolmého na ten aktuální. Pokud je fronta prázdná, funkce končí touto ukončovací podmínkou, protože pak jistě neexistují celky, které by šly nějak doplnit.
 
@@ -33,4 +32,4 @@ a) úplným vyplněním křížovky
 b) dříve kvůli sporu (tj. nastal spor a políčko nelze správně vyplnit)
 c) dříve kvůli nedostatku informací (tj. spor nenastal ale nelze jednoznačně doplnit)
 
-Děkuji že program používáte a přeji Vám s ním přijemnou zábavu.
+Přeji všem příjemnou zábavu s tímto programem.
